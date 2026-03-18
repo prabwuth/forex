@@ -4,130 +4,160 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>FOREX</title>
-<link rel="icon" href="https://prabwuth.github.io/forex/fav.png" type="image/x-icon">
-</head>
-<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:1100px;margin:0 auto;padding:16px;line-height:1.6;">
-<script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
+<link rel="icon" href="fav.png" type="image/x-icon">
 
-<tv-ticker-tape symbols="FX:EURUSD,BITSTAMP:BTCUSD,CMCMARKETS:GOLD,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:GOOGL,NASDAQ:GOOG,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:META,NASDAQ:AVGO,NASDAQ:TSLA,NASDAQ:WMT,NYSE:TSM,NYSE:BRK.B" hide-chart></tv-ticker-tape>
-<div align="center">
-<a href="https://prabwuth.github.io/forex/" title="FOREX"><img src="https://prabwuth.github.io/forex/logo.png" height="150px" ></a>
-
-<div style="color:#666;font-size:18px;">"ตลาดหุ้นเป็นอุปกรณ์ในการโอนเงินจากคนใจร้อนไปสู่ใจเย็น" – วอร์เรน บัฟเฟตต์</div>
-</div>
-<!-- START SITELINK TABLE -->
 <style>
-/* Collapsible month indicator (copy แล้วติดไปด้วย) */
-details { border-radius: 8px; }
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  max-width:1100px;
+  margin:0 auto;
+  padding:16px;
+  line-height:1.6;
+}
+
+/* ===== GRID DEFAULT (Desktop = 3 columns) ===== */
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+/* ===== Tablet (<= 1024px) = 2 columns ===== */
+@media (max-width:1024px){
+  .grid-3{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* ===== Mobile (<= 600px) = 1 column ===== */
+@media (max-width:600px){
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+}
+
+/* collapsible icon */
 details > summary {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  list-style: none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  list-style:none;
 }
 details > summary::-webkit-details-marker { display:none; }
 details > summary::before {
-  content: "▶";
-  font-size: 12px;
-  display: inline-block;
-  transition: transform .15s ease;
-  transform: rotate(0deg);
+  content:"▶";
+  font-size:12px;
+  transition:.15s;
 }
 details[open] > summary::before {
-  transform: rotate(90deg); /* ▶ หมุนเป็น ▼ */
+  transform:rotate(90deg);
 }
 </style>
-<div style="margin-top:14px;">
-<!-- START TOP TABLE -->
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;">
 
-    <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-      <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
-        คู่เงิน Forex ยอดนิยม
-      </div>
-<div style="display:flex;">
-<div style="width:50%;">
-  <ul style="margin:6px 0 0 18px;padding-left:0;">
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">EUR/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">GBP/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/aud-usd.html" title="AUD/USD" target="_blank" rel="noopener">AUD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-chf.html" title="USD/CHF" target="_blank" rel="noopener">USD/CHF</a></li>
-  </ul>
-</div>  
-<div style="width:50%;">
-   <ul style="margin:6px 0 0 18px;padding-left:0;">   
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-cad.html" title="USD/CAD" target="_blank" rel="noopener">USD/CAD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/nzd-usd.html" title="NZD/USD" target="_blank" rel="noopener">NZD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">EUR/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">GBP/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-gbp.html" title="EUR/GBP" target="_blank" rel="noopener">EUR/GBP</a></li>
-  </ul>
+</head>
+
+<body>
+
+<script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"></script>
+
+<tv-ticker-tape symbols="FX:EURUSD,BITSTAMP:BTCUSD,CMCMARKETS:GOLD,NASDAQ:NVDA,NASDAQ:AAPL,NASDAQ:GOOGL,NASDAQ:GOOG,NASDAQ:MSFT,NASDAQ:AMZN,NASDAQ:META,NASDAQ:AVGO,NASDAQ:TSLA,NASDAQ:WMT,NYSE:TSM,NYSE:BRK.B" hide-chart></tv-ticker-tape>
+
+<div align="center">
+<a href="index.html">
+<img src="logo.png" height="150">
+</a>
+<div style="color:#666;font-size:18px;">
+"ตลาดหุ้นเป็นอุปกรณ์ในการโอนเงินจากคนใจร้อนไปสู่ใจเย็น" – วอร์เรน บัฟเฟตต์
 </div>
-</div>  
+</div>
 
-    </div>
+<div style="margin-top:14px;">
 
-    <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-      <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
-        คู่เงินที่แปรผัน "ไปทางเดียวกัน"
-      </div>
-      
+<!-- ===== TOP ===== -->
+<div class="grid-3" style="padding-bottom:20px;">
 
-  <ul style="margin:6px 0 0 18px;padding-left:0;">
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eu-gu.html" title="EUR/USD vs GBP/USD" target="_blank" rel="noopener">EUR/USD vs GBP/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/au-nu.html" title="AUD/USD vs NZD/USD" target="_blank" rel="noopener">AUD/USD vs NZD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eu-au.html" title="EUR/USD vs AUD/USD" target="_blank" rel="noopener">EUR/USD vs AUD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gu-au.html" title="GBP/USD vs AUD/USD" target="_blank" rel="noopener">GBP/USD vs AUD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/ej-gj.html" title="EUR/JPY vs GBP/JPY" target="_blank" rel="noopener">EUR/JPY vs GBP/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/aj-nj.html" title="AUD/JPY vs NZD/JPY" target="_blank" rel="noopener">AUD/JPY vs NZD/JPY</a></li>
-  </ul>
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+คู่เงิน Forex ยอดนิยม
+</div>
 
-
-    </div>
-
-    <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-      <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
-        คู่เงินที่แปรผัน "ตรงข้ามกัน"
-      </div>
-     <ul style="margin:6px 0 0 18px;padding-left:0;">
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eu-uch.html" title="EUR/USD vs USD/CHF" target="_blank" rel="noopener">EUR/USD vs USD/CHF</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gu-uch.html" title="GBP/USD vs USD/CHF" target="_blank" rel="noopener">GBP/USD vs USD/CHF</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/au-uca.html" title="AUD/USD vs USD/CAD" target="_blank" rel="noopener">AUD/USD vs USD/CAD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/nu-uca.html" title="NZD/USD vs USD/CAD" target="_blank" rel="noopener">NZD/USD vs USD/CAD</a></li>    
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eu-uca.html" title="EUR/USD vs USD/CAD" target="_blank" rel="noopener">EUR/USD vs USD/CAD</a></li>    
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eu-uj.html" title="EUR/USD vs USD/JPY" target="_blank" rel="noopener">EUR/USD vs USD/JPY</a></li>
-
-
-  </ul>
-    </div>
-
-  </div>
-<!-- END TOP TABLE -->
-<!-- START BOTTOM TABLE -->
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;">
-
-    <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-      <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
-        คู่เงินที่ "วิ่งแรง"
-      </div>
 <div style="display:flex;">
 <div style="width:50%;">
-  <ul style="margin:6px 0 0 18px;padding-left:0;">
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">GBP/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-aud.html" title="GBP/AUD" target="_blank" rel="noopener">GBP/AUD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-nzd.html" title="GBP/NZD" target="_blank" rel="noopener">GBP/NZD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-aud.html" title="EUR/AUD" target="_blank" rel="noopener">EUR/AUD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-nzd.html" title="EUR/NZD" target="_blank" rel="noopener">EUR/NZD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">GBP/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/aud-jpy.html" title="AUD/JPY" target="_blank" rel="noopener">AUD/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">EUR/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">EUR/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>    
+<ul>
+    <li style="margin:4px 0;"><a href="eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">EUR/USD</a></li>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>
+    <li style="margin:4px 0;"><a href="gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">GBP/USD</a></li>
+    <li style="margin:4px 0;"><a href="aud-usd.html" title="AUD/USD" target="_blank" rel="noopener">AUD/USD</a></li>
+    <li style="margin:4px 0;"><a href="usd-chf.html" title="USD/CHF" target="_blank" rel="noopener">USD/CHF</a></li>
+</ul>
+</div>
+
+<div style="width:50%;">
+<ul>
+    <li style="margin:4px 0;"><a href="usd-cad.html" title="USD/CAD" target="_blank" rel="noopener">USD/CAD</a></li>
+    <li style="margin:4px 0;"><a href="nzd-usd.html" title="NZD/USD" target="_blank" rel="noopener">NZD/USD</a></li>
+    <li style="margin:4px 0;"><a href="eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">EUR/JPY</a></li>
+    <li style="margin:4px 0;"><a href="gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">GBP/JPY</a></li>
+    <li style="margin:4px 0;"><a href="eur-gbp.html" title="EUR/GBP" target="_blank" rel="noopener">EUR/GBP</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+คู่เงินไปทางเดียวกัน
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="eu-gu.html" title="EUR/USD vs GBP/USD" target="_blank" rel="noopener">EUR/USD vs GBP/USD</a></li>
+    <li style="margin:4px 0;"><a href="au-nu.html" title="AUD/USD vs NZD/USD" target="_blank" rel="noopener">AUD/USD vs NZD/USD</a></li>
+    <li style="margin:4px 0;"><a href="eu-au.html" title="EUR/USD vs AUD/USD" target="_blank" rel="noopener">EUR/USD vs AUD/USD</a></li>
+    <li style="margin:4px 0;"><a href="gu-au.html" title="GBP/USD vs AUD/USD" target="_blank" rel="noopener">GBP/USD vs AUD/USD</a></li>
+    <li style="margin:4px 0;"><a href="ej-gj.html" title="EUR/JPY vs GBP/JPY" target="_blank" rel="noopener">EUR/JPY vs GBP/JPY</a></li>
+    <li style="margin:4px 0;"><a href="aj-nj.html" title="AUD/JPY vs NZD/JPY" target="_blank" rel="noopener">AUD/JPY vs NZD/JPY</a></li>
+</ul>
+</div>
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+คู่เงินตรงข้ามกัน
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="eu-uch.html" title="EUR/USD vs USD/CHF" target="_blank" rel="noopener">EUR/USD vs USD/CHF</a></li>
+    <li style="margin:4px 0;"><a href="gu-uch.html" title="GBP/USD vs USD/CHF" target="_blank" rel="noopener">GBP/USD vs USD/CHF</a></li>
+    <li style="margin:4px 0;"><a href="au-uca.html" title="AUD/USD vs USD/CAD" target="_blank" rel="noopener">AUD/USD vs USD/CAD</a></li>
+    <li style="margin:4px 0;"><a href="nu-uca.html" title="NZD/USD vs USD/CAD" target="_blank" rel="noopener">NZD/USD vs USD/CAD</a></li>    
+    <li style="margin:4px 0;"><a href="eu-uca.html" title="EUR/USD vs USD/CAD" target="_blank" rel="noopener">EUR/USD vs USD/CAD</a></li>    
+    <li style="margin:4px 0;"><a href="eu-uj.html" title="EUR/USD vs USD/JPY" target="_blank" rel="noopener">EUR/USD vs USD/JPY</a></li>
+</ul>
+</div>
+
+</div>
+
+<!-- ===== MIDDLE ===== -->
+<div class="grid-3" style="padding-bottom:20px;">
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+คู่เงินวิ่งแรง
+</div>
+<div style="display:flex;">
+<div style="width:50%;">
+  <ul>
+    <li style="margin:4px 0;"><a href="gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">GBP/JPY</a></li>
+    <li style="margin:4px 0;"><a href="gbp-aud.html" title="GBP/AUD" target="_blank" rel="noopener">GBP/AUD</a></li>
+    <li style="margin:4px 0;"><a href="gbp-nzd.html" title="GBP/NZD" target="_blank" rel="noopener">GBP/NZD</a></li>
+    <li style="margin:4px 0;"><a href="eur-aud.html" title="EUR/AUD" target="_blank" rel="noopener">EUR/AUD</a></li>
+    <li style="margin:4px 0;"><a href="eur-nzd.html" title="EUR/NZD" target="_blank" rel="noopener">EUR/NZD</a></li>
+    <li style="margin:4px 0;"><a href="gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">GBP/USD</a></li>
+    <li style="margin:4px 0;"><a href="aud-jpy.html" title="AUD/JPY" target="_blank" rel="noopener">AUD/JPY</a></li>
+    <li style="margin:4px 0;"><a href="eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">EUR/JPY</a></li>
+    <li style="margin:4px 0;"><a href="eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">EUR/USD</a></li>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>    
   </ul>
 </div>  
 <div style="width:50%;">
-   <ul style="margin:6px 0 0 18px;padding-left:0;list-style: none;">   
+   <ul style="list-style: none;">   
     <li style="margin:4px 0;">150–250 pips</li>
     <li style="margin:4px 0;">140–220 pips</li>
     <li style="margin:4px 0;">140–220 pips</li>
@@ -140,48 +170,274 @@ details[open] > summary::before {
     <li style="margin:4px 0;">60–110 pips</li>    
   </ul>
 </div>
-</div>  
+</div> 
+</div>
 
-    </div>
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+กลุ่ม USD
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">EUR/USD</a></li>
+    <li style="margin:4px 0;"><a href="gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">GBP/USD</a></li>
+    <li style="margin:4px 0;"><a href="aud-usd.html" title="AUD/USD" target="_blank" rel="noopener">AUD/USD</a></li>
+    <li style="margin:4px 0;"><a href="nzd-usd.html" title="NZD/USD" target="_blank" rel="noopener">NZD/USD</a></li>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>
+    <li style="margin:4px 0;"><a href="usd-chf.html" title="USD/CHF" target="_blank" rel="noopener">USD/CHF</a></li>
+    <li style="margin:4px 0;"><a href="usd-cad.html" title="USD/CAD" target="_blank" rel="noopener">USD/CAD</a></li>  
+</ul>
+</div>
 
-    <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-      <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
-       กลุ่ม "USD"
-      </div>
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:8px;padding:8px;background:#f7f7f7;border-radius:8px;">
+กลุ่ม JPY
+</div>
+<ul>
+    <li style="margin:4px 0;"><a href="usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>
+    <li style="margin:4px 0;"><a href="eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">EUR/JPY</a></li>
+    <li style="margin:4px 0;"><a href="gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">GBP/JPY</a></li>
+    <li style="margin:4px 0;"><a href="aud-jpy.html" title="AUD/JPY" target="_blank" rel="noopener">AUD/JPY</a></li>    
+    <li style="margin:4px 0;"><a href="nzd-jpy.html" title="NZD/JPY" target="_blank" rel="noopener">NZD/JPY</a></li>    
+    <li style="margin:4px 0;"><a href="cad-jpy.html" title="CAD/JPY" target="_blank" rel="noopener">CAD/JPY</a></li>
+    <li style="margin:4px 0;"><a href="chf-jpy.html" title="CHF/JPY" target="_blank" rel="noopener">CHF/JPY</a></li>
+</ul>
+</div>
+
+</div>
+
+<!-- ===== BOTTOM (Widget) ===== -->
+<div class="grid-3">
+
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;height:550px;">
+          <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
+        ราคาปัจจุบัน "ทองคำ"
+      	  </div>
+      	  <div style="height:500px;">      
+    <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a><span class="trademark"> by TradingView</span></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "#0F0F0F",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "OANDA:XAUUSD",
+          "d": "Gold to USD",
+          "logoid": "metal/gold",
+          "currency-logoid": "country/US"
+        },
+        {
+          "s": "FXOPEN:DXY",
+          "d": "US Dollar Index",
+          "currency-logoid": "country/US"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ],
+  "support_host": "https://www.tradingview.com",
+  "width": "100%",
+  "height": "100%",
+  "showSymbolLogo": true,
+  "showChart": false
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+			</div>
       
+</div>
 
-  <ul style="margin:6px 0 0 18px;padding-left:0;">
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-usd.html" title="EUR/USD" target="_blank" rel="noopener">EUR/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-usd.html" title="GBP/USD" target="_blank" rel="noopener">GBP/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/aud-usd.html" title="AUD/USD" target="_blank" rel="noopener">AUD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/nzd-usd.html" title="NZD/USD" target="_blank" rel="noopener">NZD/USD</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-chf.html" title="USD/CHF" target="_blank" rel="noopener">USD/CHF</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-cad.html" title="USD/CAD" target="_blank" rel="noopener">USD/CAD</a></li>    
-  </ul>
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;height:550px;">
+          <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
+       ราคาปัจจุบันกลุ่ม "USD"
+      		</div>
+            <div style="height:500px;">
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a><span class="trademark"> by TradingView</span></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "#0F0F0F",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "FX:EURUSD",
+          "d": "EUR to USD"
+        },
+        {
+          "s": "FX:GBPUSD",
+          "d": "GBP to USD"
+        },
+        {
+          "s": "FX:AUDUSD",
+          "d": "AUD to USD"
+        },
+        {
+          "s": "OANDA:NZDUSD",
+          "d": "NZD to USD",
+          "base-currency-logoid": "country/NZ",
+          "currency-logoid": "country/US"
+        },
+        {
+          "s": "OANDA:USDJPY",
+          "d": "USD to JPY",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:USDCHF",
+          "d": "USD to CHF",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/CH"
+        },
+        {
+          "s": "OANDA:USDCAD",
+          "d": "USD to CAD",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/CA"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ],
+  "support_host": "https://www.tradingview.com",
+  "width": "100%",
+  "height": "100%",
+  "showSymbolLogo": true,
+  "showChart": false
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->      
+ </div> 
+</div>
 
-
-    </div>
-
-    <div style="border:1px solid #eee;border-radius:10px;padding:12px;">
-      <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
-       กลุ่ม "JPY"
+<div style="border:1px solid #eee;border-radius:10px;padding:12px;height:550px;">
+          <div style="font-weight:700;margin-bottom:8px;padding:8px 10px;border-radius:8px;background:#f7f7f7;">
+       ราคาปัจจุบันกลุ่ม "JPY"
       </div>
-     <ul style="margin:6px 0 0 18px;padding-left:0;">
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/usd-jpy.html" title="USD/JPY" target="_blank" rel="noopener">USD/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/eur-jpy.html" title="EUR/JPY" target="_blank" rel="noopener">EUR/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/gbp-jpy.html" title="GBP/JPY" target="_blank" rel="noopener">GBP/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/aud-jpy.html" title="AUD/JPY" target="_blank" rel="noopener">AUD/JPY</a></li>    
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/nzd-jpy.html" title="NZD/JPY" target="_blank" rel="noopener">NZD/JPY</a></li>    
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/cad-jpy.html" title="CAD/JPY" target="_blank" rel="noopener">CAD/JPY</a></li>
-    <li style="margin:4px 0;"><a href="https://prabwuth.github.io/forex/chf-jpy.html" title="CHF/JPY" target="_blank" rel="noopener">CHF/JPY</a></li>
+      <div style="height:500px;">      
+     <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a><span class="trademark"> by TradingView</span></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(240, 243, 250, 0)",
+  "scaleFontColor": "#0F0F0F",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "OANDA:USDJPY",
+          "d": "USD to JPY",
+          "base-currency-logoid": "country/US",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:EURJPY",
+          "d": "EUR to JPY",
+          "base-currency-logoid": "country/EU",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:GBPJPY",
+          "d": "GBP to JPY",
+          "base-currency-logoid": "country/GB",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:AUDJPY",
+          "d": "AUD to JPY",
+          "base-currency-logoid": "country/AU",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:NZDJPY",
+          "d": "NZD to JPY",
+          "base-currency-logoid": "country/NZ",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:CADJPY",
+          "d": "CAD to JPY",
+          "base-currency-logoid": "country/CA",
+          "currency-logoid": "country/JP"
+        },
+        {
+          "s": "OANDA:CHFJPY",
+          "d": "CHF to JPY",
+          "base-currency-logoid": "country/CH",
+          "currency-logoid": "country/JP"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ],
+  "support_host": "https://www.tradingview.com",
+  "width": "100%",
+  "height": "100%",
+  "showSymbolLogo": true,
+  "showChart": false
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+</div>
+</div>
 
-  </ul>
-    </div>
-
-  </div>
-<!-- END BOTTOM TABLE -->
-  
+</div>
+<!-- END 3rd TABLE -->
 </div>
 <!-- END SITELINK TABLE -->
 <div style="height:50px"></div>
